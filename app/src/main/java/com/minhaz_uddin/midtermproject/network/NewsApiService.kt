@@ -20,6 +20,8 @@ private val retrofit=Retrofit.Builder().addConverterFactory(MoshiConverterFactor
 interface NewsApiService{
     @GET("everything?q=*&apiKey=b39cc78356be4d04a705d42960788212")
     suspend fun getNews():NewsData
+    @GET("top-headlines?country=us&category=science&apiKey=b39cc78356be4d04a705d42960788212")
+    suspend fun getScienceNews():NewsData
 }
 
 object NewsApi{

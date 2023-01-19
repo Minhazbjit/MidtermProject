@@ -35,7 +35,7 @@ class AllNewsFragment : Fragment() {
         recyclerView = view.findViewById(R.id.news_recycler)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.newsList.observe(viewLifecycleOwner) {
-            recyclerView.adapter = NewsAdapter(requireContext(), viewModel, it.articles)
+            recyclerView.adapter = NewsAdapter(requireContext(), viewModel, it)
         }
     }
 

@@ -3,16 +3,20 @@ package com.minhaz_uddin.midtermproject.adapter
 import android.annotation.SuppressLint
 import android.app.ActivityManager.RecentTaskInfo
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.minhaz_uddin.midtermproject.R
 import com.minhaz_uddin.midtermproject.model.Article
+import com.minhaz_uddin.midtermproject.model.Constants
 import com.minhaz_uddin.midtermproject.viewModel.NewsViewModel
 
 
@@ -23,6 +27,7 @@ class NewsAdapter(private val context:Context,private val viewModel: NewsViewMod
         val author=view.findViewById<TextView>(R.id.author)
         val pub_date=view.findViewById<TextView>(R.id.date_publish)
         val newsImage=view.findViewById<ImageView>(R.id.news_image)
+        val seeMore=view.findViewById<Button>(R.id.seeMore)
     }
 
 
@@ -42,6 +47,11 @@ class NewsAdapter(private val context:Context,private val viewModel: NewsViewMod
             .load(news.urlToImage)
             .centerCrop()
             .into(holder.newsImage)
+        holder.seeMore.setOnClickListener {
+            val bundle=Bundle()
+            bundle.putString(Constants.NEWS_BASE,news.url)
+            it.findNavController().navigate(R.id.detailNews,bundle)
+        }
 
 
     }

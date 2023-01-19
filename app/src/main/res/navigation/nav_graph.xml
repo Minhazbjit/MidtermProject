@@ -30,4 +30,14 @@
         android:name="com.minhaz_uddin.midtermproject.ui.SportsFragment"
         android:label="fragment_sports"
         tools:layout="@layout/fragment_sports" />
+    <fragment
+        android:id="@+id/detailNews"
+        android:name="com.minhaz_uddin.midtermproject.ui.DetailNews"
+        android:label="fragment_detail_news"
+        tools:layout="@layout/fragment_detail_news" />
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.minhaz_uddin.midtermproject.ui.BookmarkFragment"
+        android:label="fragment_bookmark"
+        tools:layout="@layout/fragment_bookmark" />
 </navigation>
